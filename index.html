@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shucle Token Viewer</title>
@@ -133,42 +131,630 @@ main{padding:24px 32px 64px;max-width:1280px;margin:0 auto;}
   <div class="logo"><div class="logo-mark"></div>Shucle Token Viewer</div>
   <div class="top-right">
     <button class="btn btn-ghost" onclick="document.getElementById('fi').click()">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>색상 교체
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"></path></svg>색상 교체
     </button>
     <input type="file" id="fi" accept=".json" onchange="handleFile(event,'color')">
     <button class="btn btn-ghost" onclick="document.getElementById('fi2').click()">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>타이포 교체
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"></path></svg>타이포 교체
     </button>
     <input type="file" id="fi2" accept=".json" onchange="handleFile(event,'typo')">
     <div class="divider"></div>
-    <button class="btn btn-green" id="pushBtn" onclick="openPushModal()" disabled style="opacity:0.4">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>GitHub에 저장
+    <button class="btn btn-green" id="pushBtn" onclick="openPushModal()" style="opacity: 1;" title="GitHub에 저장">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"></path></svg>GitHub에 저장
     </button>
     <button class="btn btn-ghost" onclick="openSettingsModal()" title="GitHub 설정">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
     </button>
   </div>
 </header>
 
 <nav class="tabs">
-  <div class="tab active" onclick="switchTab('colors',this)">🎨 Colors</div>
-  <div class="tab" onclick="switchTab('typography',this)">✏️ Typography</div>
+  <div class="tab" onclick="switchTab('colors',this)">🎨 Colors</div>
+  <div class="tab active" onclick="switchTab('typography',this)">✏️ Typography</div>
   <div class="tab" onclick="switchTab('changelog',this)">📋 Changelog</div>
 </nav>
 
 <div class="mode-bar" id="modeBar">
-  <div class="stats" id="statsArea"></div>
-  <div class="mode-toggle" id="modeToggle" style="display:none"></div>
+  <div class="stats" id="statsArea"><div class="chip"><div class="dot" style="background:var(--p)"></div>14 tokens</div></div>
+  <div class="mode-toggle" id="modeToggle" style="display: flex;"><button class="mode-btn active" onclick="setTypoMode('23763:0')"> normal</button><button class="mode-btn " onclick="setTypoMode('23763:1')"> large</button><button class="mode-btn " onclick="setTypoMode('23763:2')"> 200%</button></div>
 </div>
 
 <main>
-  <section id="colors" class="section active"><div id="colorsContent"></div></section>
-  <section id="typography" class="section"><div id="typoContent"></div></section>
+  <section id="colors" class="section"><div id="colorsContent"><div class="cat-label">bg <span>10</span></div><div class="color-grid"><div class="color-card" onclick="copyText('#ffffff')">
+        <div class="swatch" style="background:#ffffff"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">primary</div>
+          <div class="chex">#ffffff</div>
+          <div class="calias">Color/Neutral/100 (white)</div>
+        </div></div><div class="color-card" onclick="copyText('#f7f7fa')">
+        <div class="swatch" style="background:#f7f7fa"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">secondary</div>
+          <div class="chex">#f7f7fa</div>
+          <div class="calias">Color/Neutral/98</div>
+        </div></div><div class="color-card" onclick="copyText('#f3f3f6')">
+        <div class="swatch" style="background:#f3f3f6"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">tertiary</div>
+          <div class="chex">#f3f3f6</div>
+          <div class="calias">Color/Neutral/96</div>
+        </div></div><div class="color-card" onclick="copyText('#0d2253')">
+        <div class="swatch" style="background:#0d2253"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">accent</div>
+          <div class="chex">#0d2253</div>
+          <div class="calias">Color/Blue/20 (navyblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#f3f6fd')">
+        <div class="swatch" style="background:#f3f6fd"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">focus</div>
+          <div class="chex">#f3f6fd</div>
+          <div class="calias">Color/Blue/95 (grayblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#fff5eb')">
+        <div class="swatch" style="background:#fff5eb"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">warning</div>
+          <div class="chex">#fff5eb</div>
+          <div class="calias">Color/Orange/95 (seashell)</div>
+        </div></div><div class="color-card" onclick="copyText('#ec083c12')">
+        <div class="swatch" style="background:#ec083c12"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">error</div>
+          <div class="chex">#ec083c12</div>
+          <div class="calias">Color/Red/alpha-07</div>
+        </div></div><div class="color-card" onclick="copyText('#00000099')">
+        <div class="swatch" style="background:#00000099"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">dim-default</div>
+          <div class="chex">#00000099</div>
+          <div class="calias">Color/Neutral/black-alpha-60</div>
+        </div></div><div class="color-card" onclick="copyText('#e6e6eb')">
+        <div class="swatch" style="background:#e6e6eb"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">quaternary</div>
+          <div class="chex">#e6e6eb</div>
+          <div class="calias">Color/Neutral/92</div>
+        </div></div><div class="color-card" onclick="copyText('#eaeef7')">
+        <div class="swatch" style="background:#eaeef7"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">focus-light</div>
+          <div class="chex">#eaeef7</div>
+          <div class="calias">Color/Indigo/95</div>
+        </div></div></div><div class="cat-label">brand-primary <span>1</span></div><div class="color-grid"><div class="color-card" onclick="copyText('#2462f7')">
+        <div class="swatch" style="background:#2462f7"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">brand-primary</div>
+          <div class="chex">#2462f7</div>
+          <div class="calias">Color/Blue/50 (primary)</div>
+        </div></div></div><div class="cat-label">text <span>20</span></div><div class="color-grid"><div class="color-card" onclick="copyText('#121212')">
+        <div class="swatch" style="background:#121212"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">primary</div>
+          <div class="chex">#121212</div>
+          <div class="calias">Color/Neutral/10</div>
+        </div></div><div class="color-card" onclick="copyText('#2e2e33')">
+        <div class="swatch" style="background:#2e2e33"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">secondary</div>
+          <div class="chex">#2e2e33</div>
+          <div class="calias">Color/Neutral/20</div>
+        </div></div><div class="color-card" onclick="copyText('#45464c')">
+        <div class="swatch" style="background:#45464c"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">tertiary</div>
+          <div class="chex">#45464c</div>
+          <div class="calias">Color/Neutral/30</div>
+        </div></div><div class="color-card" onclick="copyText('#5e5f66')">
+        <div class="swatch" style="background:#5e5f66"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">body</div>
+          <div class="chex">#5e5f66</div>
+          <div class="calias">Color/Neutral/40</div>
+        </div></div><div class="color-card" onclick="copyText('#909199')">
+        <div class="swatch" style="background:#909199"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">caption</div>
+          <div class="chex">#909199</div>
+          <div class="calias">Color/Neutral/60</div>
+        </div></div><div class="color-card" onclick="copyText('#a8aab2')">
+        <div class="swatch" style="background:#a8aab2"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">unselected</div>
+          <div class="chex">#a8aab2</div>
+          <div class="calias">Color/Neutral/70</div>
+        </div></div><div class="color-card" onclick="copyText('#c4c4cc')">
+        <div class="swatch" style="background:#c4c4cc"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">placeholder</div>
+          <div class="chex">#c4c4cc</div>
+          <div class="calias">Color/Neutral/80</div>
+        </div></div><div class="color-card" onclick="copyText('#e6e6eb')">
+        <div class="swatch" style="background:#e6e6eb"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">disabled</div>
+          <div class="chex">#e6e6eb</div>
+          <div class="calias">Color/Neutral/92</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff')">
+        <div class="swatch" style="background:#ffffff"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-primary</div>
+          <div class="chex">#ffffff</div>
+          <div class="calias">Color/Neutral/100 (white)</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffffb2')">
+        <div class="swatch" style="background:#ffffffb2"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-caption</div>
+          <div class="chex">#ffffffb2</div>
+          <div class="calias">Color/Neutral/white-alpha-70</div>
+        </div></div><div class="color-card" onclick="copyText('#fa8500')">
+        <div class="swatch" style="background:#fa8500"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">warning</div>
+          <div class="chex">#fa8500</div>
+          <div class="calias">Color/Orange/50</div>
+        </div></div><div class="color-card" onclick="copyText('#2462f7')">
+        <div class="swatch" style="background:#2462f7"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">highlight</div>
+          <div class="chex">#2462f7</div>
+          <div class="calias">Color/Blue/50 (primary)</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff80')">
+        <div class="swatch" style="background:#ffffff80"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-disabled</div>
+          <div class="chex">#ffffff80</div>
+          <div class="calias">Color/Neutral/white-alpha-50</div>
+        </div></div><div class="color-card" onclick="copyText('#ec083c')">
+        <div class="swatch" style="background:#ec083c"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">error</div>
+          <div class="chex">#ec083c</div>
+          <div class="calias">Color/Red/50 (error)</div>
+        </div></div><div class="color-card" onclick="copyText('#0d2253')">
+        <div class="swatch" style="background:#0d2253"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">accent</div>
+          <div class="chex">#0d2253</div>
+          <div class="calias">Color/Blue/20 (navyblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#143074')">
+        <div class="swatch" style="background:#143074"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">accent-light</div>
+          <div class="chex">#143074</div>
+          <div class="calias">Color/Blue/30 (midnightblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#073fc5')">
+        <div class="swatch" style="background:#073fc5"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">benefit</div>
+          <div class="chex">#073fc5</div>
+          <div class="calias">Color/Blue/40 (blueberryblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#069b33')">
+        <div class="swatch" style="background:#069b33"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">sub-highlight</div>
+          <div class="chex">#069b33</div>
+          <div class="calias">Color/Green/40 (kellygreen)</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffffb2')">
+        <div class="swatch" style="background:#ffffffb2"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-primary-caption 2</div>
+          <div class="chex">#ffffffb2</div>
+          <div class="calias">Color/Neutral/white-alpha-70</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff80')">
+        <div class="swatch" style="background:#ffffff80"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-primary-disabled 2</div>
+          <div class="chex">#ffffff80</div>
+          <div class="calias">Color/Neutral/white-alpha-50</div>
+        </div></div></div><div class="cat-label">icon <span>18</span></div><div class="color-grid"><div class="color-card" onclick="copyText('#2462f7')">
+        <div class="swatch" style="background:#2462f7"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">selected</div>
+          <div class="chex">#2462f7</div>
+          <div class="calias">Color/Blue/50 (primary)</div>
+        </div></div><div class="color-card" onclick="copyText('#121212')">
+        <div class="swatch" style="background:#121212"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">primary</div>
+          <div class="chex">#121212</div>
+          <div class="calias">Color/Neutral/10</div>
+        </div></div><div class="color-card" onclick="copyText('#45464c')">
+        <div class="swatch" style="background:#45464c"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">tertiary</div>
+          <div class="chex">#45464c</div>
+          <div class="calias">Color/Neutral/30</div>
+        </div></div><div class="color-card" onclick="copyText('#5e5f66')">
+        <div class="swatch" style="background:#5e5f66"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">body</div>
+          <div class="chex">#5e5f66</div>
+          <div class="calias">Color/Neutral/40</div>
+        </div></div><div class="color-card" onclick="copyText('#2e2e33')">
+        <div class="swatch" style="background:#2e2e33"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">secondary</div>
+          <div class="chex">#2e2e33</div>
+          <div class="calias">Color/Neutral/20</div>
+        </div></div><div class="color-card" onclick="copyText('#ededf0')">
+        <div class="swatch" style="background:#ededf0"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">disabled</div>
+          <div class="chex">#ededf0</div>
+          <div class="calias">Color/Neutral/94</div>
+        </div></div><div class="color-card" onclick="copyText('#c4c4cc')">
+        <div class="swatch" style="background:#c4c4cc"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">unselected</div>
+          <div class="chex">#c4c4cc</div>
+          <div class="calias">Color/Neutral/80</div>
+        </div></div><div class="color-card" onclick="copyText('#909199')">
+        <div class="swatch" style="background:#909199"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">caption</div>
+          <div class="chex">#909199</div>
+          <div class="calias">Color/Neutral/60</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff')">
+        <div class="swatch" style="background:#ffffff"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-primary</div>
+          <div class="chex">#ffffff</div>
+          <div class="calias">Color/Neutral/100 (white)</div>
+        </div></div><div class="color-card" onclick="copyText('#d6e5fe')">
+        <div class="swatch" style="background:#d6e5fe"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">variant</div>
+          <div class="chex">#d6e5fe</div>
+          <div class="calias">Color/Blue/90</div>
+        </div></div><div class="color-card" onclick="copyText('#ffda15')">
+        <div class="swatch" style="background:#ffda15"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">rating</div>
+          <div class="chex">#ffda15</div>
+          <div class="calias">Color/Yellow/60</div>
+        </div></div><div class="color-card" onclick="copyText('#ec083c')">
+        <div class="swatch" style="background:#ec083c"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">error</div>
+          <div class="chex">#ec083c</div>
+          <div class="calias">Color/Red/50 (error)</div>
+        </div></div><div class="color-card" onclick="copyText('#143074')">
+        <div class="swatch" style="background:#143074"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">accent-light</div>
+          <div class="chex">#143074</div>
+          <div class="calias">Color/Blue/30 (midnightblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#0d2253')">
+        <div class="swatch" style="background:#0d2253"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">accent</div>
+          <div class="chex">#0d2253</div>
+          <div class="calias">Color/Blue/20 (navyblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#073fc5')">
+        <div class="swatch" style="background:#073fc5"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">benefit</div>
+          <div class="chex">#073fc5</div>
+          <div class="calias">Color/Blue/40 (blueberryblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#069b33')">
+        <div class="swatch" style="background:#069b33"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">sub-highlight</div>
+          <div class="chex">#069b33</div>
+          <div class="calias">Color/Green/40 (kellygreen)</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffffb2')">
+        <div class="swatch" style="background:#ffffffb2"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-caption</div>
+          <div class="chex">#ffffffb2</div>
+          <div class="calias">Color/Neutral/white-alpha-70</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff80')">
+        <div class="swatch" style="background:#ffffff80"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-disabled</div>
+          <div class="chex">#ffffff80</div>
+          <div class="calias">Color/Neutral/white-alpha-50</div>
+        </div></div></div><div class="cat-label">border <span>12</span></div><div class="color-grid"><div class="color-card" onclick="copyText('#ededf0')">
+        <div class="swatch" style="background:#ededf0"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">primary</div>
+          <div class="chex">#ededf0</div>
+          <div class="calias">Color/Neutral/94</div>
+        </div></div><div class="color-card" onclick="copyText('#e6e6eb')">
+        <div class="swatch" style="background:#e6e6eb"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">secondary</div>
+          <div class="chex">#e6e6eb</div>
+          <div class="calias">Color/Neutral/92</div>
+        </div></div><div class="color-card" onclick="copyText('#dfdfe5')">
+        <div class="swatch" style="background:#dfdfe5"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">tertiary</div>
+          <div class="chex">#dfdfe5</div>
+          <div class="calias">Color/Neutral/90</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff33')">
+        <div class="swatch" style="background:#ffffff33"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-primary</div>
+          <div class="chex">#ffffff33</div>
+          <div class="calias">Color/Neutral/white-alpha-20</div>
+        </div></div><div class="color-card" onclick="copyText('#2462f7')">
+        <div class="swatch" style="background:#2462f7"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">selected</div>
+          <div class="chex">#2462f7</div>
+          <div class="calias">Color/Blue/50 (primary)</div>
+        </div></div><div class="color-card" onclick="copyText('#ec083c')">
+        <div class="swatch" style="background:#ec083c"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">error</div>
+          <div class="chex">#ec083c</div>
+          <div class="calias">Color/Red/50 (error)</div>
+        </div></div><div class="color-card" onclick="copyText('#ec083c26')">
+        <div class="swatch" style="background:#ec083c26"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">error-light</div>
+          <div class="chex">#ec083c26</div>
+          <div class="calias">Color/Red/alpha-15</div>
+        </div></div><div class="color-card" onclick="copyText('#0000000a')">
+        <div class="swatch" style="background:#0000000a"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">focus</div>
+          <div class="chex">#0000000a</div>
+          <div class="calias">Color/Neutral/black-alpha-4</div>
+        </div></div><div class="color-card" onclick="copyText('#68a2ff')">
+        <div class="swatch" style="background:#68a2ff"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">highlight</div>
+          <div class="chex">#68a2ff</div>
+          <div class="calias">Color/Blue/70 (pastelblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#d0dbfb')">
+        <div class="swatch" style="background:#d0dbfb"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">accent-light</div>
+          <div class="chex">#d0dbfb</div>
+          <div class="calias">Color/Indigo/90</div>
+        </div></div><div class="color-card" onclick="copyText('#14bd47')">
+        <div class="swatch" style="background:#14bd47"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">sub-highlight</div>
+          <div class="chex">#14bd47</div>
+          <div class="calias">Color/Green/50 (darkgreen)</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff80')">
+        <div class="swatch" style="background:#ffffff80"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">on-secondary</div>
+          <div class="chex">#ffffff80</div>
+          <div class="calias">Color/Neutral/white-alpha-50</div>
+        </div></div></div><div class="cat-label">component <span>16</span></div><div class="color-grid"><div class="color-card" onclick="copyText('#2462f7')">
+        <div class="swatch" style="background:#2462f7"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">btn/bg-primary</div>
+          <div class="chex">#2462f7</div>
+          <div class="calias">Color/Blue/50 (primary)</div>
+        </div></div><div class="color-card" onclick="copyText('#b9d4ff')">
+        <div class="swatch" style="background:#b9d4ff"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">btn/bg-primary-disabled</div>
+          <div class="chex">#b9d4ff</div>
+          <div class="calias">Color/Blue/85 (skyblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff')">
+        <div class="swatch" style="background:#ffffff"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">btn/bg-secondary</div>
+          <div class="chex">#ffffff</div>
+          <div class="calias">Color/Neutral/100 (white)</div>
+        </div></div><div class="color-card" onclick="copyText('#ffffff14')">
+        <div class="swatch" style="background:#ffffff14"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">btn/bg-on-secondary</div>
+          <div class="chex">#ffffff14</div>
+          <div class="calias">Color/Neutral/white-alpha-8</div>
+        </div></div><div class="color-card" onclick="copyText('#f7f7fa')">
+        <div class="swatch" style="background:#f7f7fa"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-primary</div>
+          <div class="chex">#f7f7fa</div>
+          <div class="calias">Color/Neutral/98</div>
+        </div></div><div class="color-card" onclick="copyText('#f7f7fa')">
+        <div class="swatch" style="background:#f7f7fa"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">input/bg-primary</div>
+          <div class="chex">#f7f7fa</div>
+          <div class="calias">Color/Neutral/98</div>
+        </div></div><div class="color-card" onclick="copyText('#f7f7fa')">
+        <div class="swatch" style="background:#f7f7fa"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">btn/bg-secondary-disabled</div>
+          <div class="chex">#f7f7fa</div>
+          <div class="calias">Color/Neutral/98</div>
+        </div></div><div class="color-card" onclick="copyText('#f3f6fd')">
+        <div class="swatch" style="background:#f3f6fd"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-focus</div>
+          <div class="chex">#f3f6fd</div>
+          <div class="calias">Color/Blue/95 (grayblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#ec083c12')">
+        <div class="swatch" style="background:#ec083c12"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-error</div>
+          <div class="chex">#ec083c12</div>
+          <div class="calias">Color/Red/alpha-07</div>
+        </div></div><div class="color-card" onclick="copyText('#e6e6eb')">
+        <div class="swatch" style="background:#e6e6eb"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-secondary</div>
+          <div class="chex">#e6e6eb</div>
+          <div class="calias">Color/Neutral/92</div>
+        </div></div><div class="color-card" onclick="copyText('#a8aab2')">
+        <div class="swatch" style="background:#a8aab2"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-tertiary</div>
+          <div class="chex">#a8aab2</div>
+          <div class="calias">Color/Neutral/70</div>
+        </div></div><div class="color-card" onclick="copyText('#2462f7')">
+        <div class="swatch" style="background:#2462f7"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-highlight</div>
+          <div class="chex">#2462f7</div>
+          <div class="calias">Color/Blue/50 (primary)</div>
+        </div></div><div class="color-card" onclick="copyText('#0d2253')">
+        <div class="swatch" style="background:#0d2253"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">btn/bg-accent</div>
+          <div class="chex">#0d2253</div>
+          <div class="calias">Color/Blue/20 (navyblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#143074')">
+        <div class="swatch" style="background:#143074"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">btn/bg-accent-light</div>
+          <div class="chex">#143074</div>
+          <div class="calias">Color/Blue/30 (midnightblue)</div>
+        </div></div><div class="color-card" onclick="copyText('#45464c')">
+        <div class="swatch" style="background:#45464c"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-quaternary</div>
+          <div class="chex">#45464c</div>
+          <div class="calias">Color/Neutral/30</div>
+        </div></div><div class="color-card" onclick="copyText('#edfdf4')">
+        <div class="swatch" style="background:#edfdf4"><span class="copy-hint">클릭 복사</span></div>
+        <div class="cinfo">
+          <div class="cname">chip/bg-sub-highlight</div>
+          <div class="chex">#edfdf4</div>
+          <div class="calias">Color/Green/95 (jadegreen)</div>
+        </div></div></div></div></section>
+  <section id="typography" class="section active"><div id="typoContent"><div class="cat-label">Headline <span>4</span></div><div class="typo-card" onclick="copyText('font-size/Headline/40')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/Headline/40</div>
+          <div class="tspec"><b>normal</b>: 32px · <b>large</b>: 42px · <b>200%</b>: 64px</div>
+        </div>
+        <div class="tpreview" style="font-size:32px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/Headline/30')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/Headline/30</div>
+          <div class="tspec"><b>normal</b>: 28px · <b>large</b>: 38px · <b>200%</b>: 56px</div>
+        </div>
+        <div class="tpreview" style="font-size:28px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/Headline/20')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/Headline/20</div>
+          <div class="tspec"><b>normal</b>: 24px · <b>large</b>: 34px · <b>200%</b>: 48px</div>
+        </div>
+        <div class="tpreview" style="font-size:24px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/Headline/10')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/Headline/10</div>
+          <div class="tspec"><b>normal</b>: 22px · <b>large</b>: 32px · <b>200%</b>: 44px</div>
+        </div>
+        <div class="tpreview" style="font-size:22px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="cat-label">Subheadline <span>3</span></div><div class="typo-card" onclick="copyText('font-size/Subheadline/30')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/Subheadline/30</div>
+          <div class="tspec"><b>normal</b>: 20px · <b>large</b>: 30px · <b>200%</b>: 40px</div>
+        </div>
+        <div class="tpreview" style="font-size:20px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/Subheadline/20')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/Subheadline/20</div>
+          <div class="tspec"><b>normal</b>: 18px · <b>large</b>: 28px · <b>200%</b>: 36px</div>
+        </div>
+        <div class="tpreview" style="font-size:18px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/Subheadline/10')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/Subheadline/10</div>
+          <div class="tspec"><b>normal</b>: 17px · <b>large</b>: 27px · <b>200%</b>: 34px</div>
+        </div>
+        <div class="tpreview" style="font-size:17px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="cat-label">body <span>2</span></div><div class="typo-card" onclick="copyText('font-size/body/20')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/body/20</div>
+          <div class="tspec"><b>normal</b>: 16px · <b>large</b>: 26px · <b>200%</b>: 32px</div>
+        </div>
+        <div class="tpreview" style="font-size:16px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/body/10')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/body/10</div>
+          <div class="tspec"><b>normal</b>: 15px · <b>large</b>: 25px · <b>200%</b>: 30px</div>
+        </div>
+        <div class="tpreview" style="font-size:15px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="cat-label">caption <span>2</span></div><div class="typo-card" onclick="copyText('font-size/caption/20')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/caption/20</div>
+          <div class="tspec"><b>normal</b>: 14px · <b>large</b>: 24px · <b>200%</b>: 28px</div>
+        </div>
+        <div class="tpreview" style="font-size:14px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/caption/10')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/caption/10</div>
+          <div class="tspec"><b>normal</b>: 13px · <b>large</b>: 23px · <b>200%</b>: 26px</div>
+        </div>
+        <div class="tpreview" style="font-size:13px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="cat-label">micro <span>3</span></div><div class="typo-card" onclick="copyText('font-size/micro/30')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/micro/30</div>
+          <div class="tspec"><b>normal</b>: 12px · <b>large</b>: 22px · <b>200%</b>: 24px</div>
+        </div>
+        <div class="tpreview" style="font-size:12px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/micro/20')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/micro/20</div>
+          <div class="tspec"><b>normal</b>: 11px · <b>large</b>: 21px · <b>200%</b>: 22px</div>
+        </div>
+        <div class="tpreview" style="font-size:11px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div><div class="typo-card" onclick="copyText('font-size/micro/10')">
+        <div class="tmeta">
+          <div class="ttoken">font-size/micro/10</div>
+          <div class="tspec"><b>normal</b>: 10px · <b>large</b>: 20px · <b>200%</b>: 20px</div>
+        </div>
+        <div class="tpreview" style="font-size:10px;line-height:1.2;">
+          가나다라마바사 Aa 123
+        </div>
+        <span class="tcopy-hint">토큰명 복사</span>
+      </div></div></section>
   <section id="changelog" class="section"><div id="changelogContent"></div></section>
 </main>
 
 <!-- GitHub Settings Modal -->
-<div class="modal-overlay" id="settingsModal" style="display:none">
+<div class="modal-overlay" id="settingsModal" style="display: none;">
   <div class="modal">
     <div class="modal-title">GitHub 연동 설정</div>
     <div class="modal-sub">한 번만 입력하면 브라우저에 저장돼요. Token은 외부로 전송되지 않아요.</div>
@@ -193,7 +779,7 @@ main{padding:24px 32px 64px;max-width:1280px;margin:0 auto;}
 </div>
 
 <!-- Push Modal -->
-<div class="modal-overlay" id="pushModal" style="display:none">
+<div class="modal-overlay open" id="pushModal" style="display: flex;">
   <div class="modal">
     <div class="modal-title">GitHub에 저장</div>
     <div class="modal-sub">업로드한 토큰을 GitHub에 반영하고 Changelog를 기록해요.</div>
@@ -203,19 +789,19 @@ main{padding:24px 32px 64px;max-width:1280px;margin:0 auto;}
     </div>
     <div class="field">
       <label>변경된 파일</label>
-      <div id="changedFiles" style="display:flex;gap:6px;flex-wrap:wrap;padding:8px 0;"></div>
+      <div id="changedFiles" style="display:flex;gap:6px;flex-wrap:wrap;padding:8px 0;"><span class="cl-file-tag cl-file-color">🎨 Semantic Color Tokens.json</span><span class="cl-file-tag cl-file-typo">✏️ Typography.json</span></div>
     </div>
-    <div class="push-status" id="pushStatus"></div>
+    <div class="push-status loading" id="pushStatus">⏳ GitHub에 업로드 중...</div>
     <div class="modal-actions">
       <button class="btn btn-ghost" onclick="closeModal('pushModal')">취소</button>
-      <button class="btn btn-green" id="doPushBtn" onclick="doPush()">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4"/></svg>저장하기
+      <button class="btn btn-green" id="doPushBtn" onclick="doPush()" disabled="">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4m0 0L3 8m4-4l4 4"></path></svg>저장하기
       </button>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">설정 저장됨 ✓</div>
 
 <script>
 // ── Embedded base data ────────────────────────────────────
@@ -597,5 +1183,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
   updatePushBtn();
 });
 </script>
-</body>
-</html>
+
+
+</body></html>
